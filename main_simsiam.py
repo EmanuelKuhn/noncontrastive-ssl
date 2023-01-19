@@ -30,7 +30,6 @@ import torchvision.models as models
 import autolearn.simsiam.builder as builder
 from torch.utils.data import Subset
 from autolearn.simsiam.data import imagenet_train, imagenet_train_subset, places_simsiam_train, places_train_subset
-from autolearn.simsiam.fast_simsiam_error import fast_simsiam_error
 import resnet_variants
 from autolearn import vits
 from functools import partial
@@ -177,6 +176,11 @@ parser.add_argument('--fix_all_lr', action='store_true')
 # vit specific configs:
 parser.add_argument('--stop-grad-conv1', action='store_true',
                     help='stop-grad after first conv, or patch embedding')
+
+
+def fast_simsiam_error(model, images):
+    raise NotImplementedError("Missing from upstream repo")
+
 
 def main():
     args = parser.parse_args()
